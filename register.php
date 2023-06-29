@@ -1,0 +1,39 @@
+<?php
+    session_start();
+?>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHP-Auth</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<form action="includes/signup.php" method="post" enctype="multipart/form-data">
+    <label for="name">Name:</label>
+    <input type="text" name="name" placeholder="Type your name:">
+    <label for="email">Email:</label>
+    <input type="email" name="email" placeholder="Type your email:">
+    <label for="img">Profile picture:</label>
+    <input type="file" name="img" >
+    <label for="pwd">Password:</label>
+    <input type="password" name="pwd" placeholder="Type your password:">
+    <label for="pwd">Password repeat:</label>
+    <input type="password" name="pwd_r" placeholder="Repeat your password:">
+    <input type="submit" name="submit" value="Submit">
+    <p>
+        Already have an account? - <a href="index.php">Login here!</a>
+    </p>
+
+        <?php
+            if(isset($_SESSION['pwdnm'])){
+                echo '<p class="error" style="color: red;">Passwords not match!</p>';
+                unset($_SESSION['pwdnm']);
+            }
+        ?>
+
+
+
+</form>
+</body>
+</html>

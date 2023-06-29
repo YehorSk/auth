@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+
+    width: 400px;
+}
+form input{
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+form input[type = submit]{
+    padding: 10px;
+    border-bottom: none;
+}
+form input[type = submit]:hover{
+    background-color: black;
+    color: white;
+}
+p{
+    margin: 10px 0;
+}
