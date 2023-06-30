@@ -10,28 +10,19 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <form action="includes/signin.php" method="post">
+    <form>
         <label for="email">Email:</label>
         <input type="email" name="email" placeholder="Type your email:">
         <label for="pwd">Password:</label>
         <input type="password" name="pwd" placeholder="Type your password:">
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" class="login-btn" value="Submit">
         <p>
             Don't have an account? - <a href="register.php">Register here!</a>
         </p>
-        <?php
-        if(isset($_SESSION['usercreated'])){
-            echo '<p class="error" style="color: gold;">Authorization is completed!</p>';
-            unset($_SESSION['usercreated']);
-        }
-        ?>
-        <?php
-        if(isset($_SESSION['wrong'])){
-            echo '<p class="error" style="color: red;">Incorrect login or password!</p>';
-            unset($_SESSION['wrong']);
-        }
-        ?>
+        <p class="msg none" style="color: gold;">Authorization is completed!</p>
     </form>
+<script src="assets/js/jquery-3.7.0.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
 <?php

@@ -3,7 +3,7 @@
 
     session_start();
     require_once 'connect.php';
-    if (isset($_POST['submit'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
         $pwd = md5($pwd);
@@ -16,11 +16,23 @@
                 'avatar' => $user['avatar'],
                 'email' => $user['email']
             ];
-            header('Location: ../profile.php');
-
+            $response = [
+                "status" => true
+            ];
+            echo json_encode($response);
+            //header('Location: ../profile.php');
+            //echo 'Auth success';
         } else {
+            $response = [
+                "status" => false,
+                "message" => "Authentication failed!"
+            ];
+            echo json_encode($response);
+            /*
             $_SESSION['wrong'] = true;
             header('Location: ../index.php?error=Error');
+            */
+            //echo 'Auth fail';
         }
     }
 

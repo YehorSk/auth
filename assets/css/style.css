@@ -30,6 +30,9 @@ form input[type = submit]:hover{
     background-color: black;
     color: white;
 }
+.none{
+    display: none;
+}
 p{
     margin: 10px 0;
 }
